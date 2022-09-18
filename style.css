@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto:wght@300&display=swap');
+
+
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background: linear-gradient(-45deg, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
+  animation: animate 7.5s ease-in-out infinite;
+  color: #fff;
+  font-family:'Roboto', 'sans-serif';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 100px;
+}
+
+h1{
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.filter-container{
+  margin-top: 20px;
+  width: 80vw;
+  max-width: 800px;
+  
+}
+
+.filter{
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.2);
+}
+
+.post{
+  position: relative;
+  /* relative because the index numbers are gonna be positioned absolute */
+  background: rgba(255,255,255,0.2);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  border-radius: 25px;
+  padding: 20px;
+  margin: 40px 0;
+  display: flex;
+  width: 80vw;
+  max-width: 800px;
+}
+
+.post .post-title{
+  margin: 0
+}
+
+.post .post-info{
+  margin-left: 20px;
+}
+
+.post .number{
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #a883f6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  color:#efe5fd;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 7px 10px;
+}
+
+.loader{
+  /*setting opacity of showing loading circles or not */
+  opacity: 0;
+  /* continuing with default settings */
+  display: flex;
+  position: fixed;
+  bottom: 50px;
+  transition: opacity 0.3s ease-in;
+}
+
+.loader.show{
+  opacity: 1;
+}
+
+.circle{
+  background-color: #fff;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: bounce 0.5s ease-in infinite;
+}
+
+/* until this point, the three circles bounce at the same time, but that's not what we want. they should bounce one after another, in a sequence */
+/* Let's do it: */
+
+.circle:nth-of-type(2){
+  animation-delay: 0.1s;
+}
+.circle:nth-of-type(3){
+  animation-delay: 0.2s;
+}
+
+
+@keyframes animate{
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+@keyframes bounce{
+  0%,
+  50%{
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
